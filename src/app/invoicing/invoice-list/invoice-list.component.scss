@@ -1,0 +1,46 @@
+@import '../../colors';
+
+.main-div {
+  margin-top: 60px;
+}
+
+.invoice-list {
+  max-height: calc(100vh - 230px);
+}
+
+.invoice-price {
+  float: right;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: white;
+  background-color: $blue;
+  border-radius: 1rem;
+}
+
+.invoice-price-paid {
+  background-color: $green;
+}
+
+.totals {
+  position: fixed;
+  bottom: 0;
+  width: 320px;
+  background-color: white;
+  height: 100px;
+}
+
+.vertical-centered {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.left-side {
+  float: left;
+  width: 320px;
+}
+
+.right-side {
+  float: right;
+  width: calc(100% - 320px);
+}

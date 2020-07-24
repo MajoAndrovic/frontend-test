@@ -1,0 +1,36 @@
+<div class="main-div">
+  <div class="left-side border-right">
+    <div class="container p-3">
+      <input #searchText class="form-control" type="text" placeholder="Hľadať" (input)="onSearchInput(searchText.value)">
+    </div>
+    
+    <div class="invoice-list overflow-auto">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let invoice of foundInvoices; let i = index">
+          <span>{{i}}. {{invoice.name}}</span>
+          <span class="invoice-price" [ngClass]="{'invoice-price-paid': isInvoicePaid(invoice)}">{{invoiceState(invoice)}}</span>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="container totals border-right border-top">
+      <div class="vertical-centered">
+        <div>
+          <strong>Uhradených: {{getPaidCount()}}</strong>
+        </div>
+        <div>
+          <strong>Neuhradených: {{getUnpaidCount()}}</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <form class="right-side text-center p-3" onsubmit="return false">
+    <div class="form-group">
+      <input #newInvoiceName class="form-control" type="text" placeholder="Pridať faktúru">
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit" (click)="onAddClick(newInvoiceName.value)">Pridať faktúru</button>
+    </div>
+  </form>
+</div>
